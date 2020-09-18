@@ -2,6 +2,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('',views.res,name="res"),
-    path('response/',views.response,name="response"),
+    path('<str:pk>/',views.response,name="response"),
 ]
