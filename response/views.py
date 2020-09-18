@@ -56,9 +56,9 @@ def response(request,pk):
 
     soup = get_html(index)
 
-    print(Share_holding_pattern(soup,index))
+    if index:
     
-    return JsonResponse([
+        return JsonResponse([
         {
             'Company':'{}'.format(pk),
             'details':{
@@ -68,64 +68,100 @@ def response(request,pk):
                     "52_Week_High":week_52_high(soup,index),
                     "52_Week_Low":week_52_low(soup,index),
                 },
-                            "Company_details":{
+                "Company_details":{
+                    "Market_cap":{},
+                    "Enterprice_value":{},
+                    "No. of Shares":{},
+                    "P/E":{},
+                    "P/B":{},
+                    "Face_value":{},
+                    "div_Yeild":{},
+                    "Book_value_(TTM)":{},
+                    "Cash":{},
+                    "Debt":{},
+                    "promoter_holding":{},
+                    "Eps(TTM)":{},
+                    "Sales_growth":{},
+                    "Roe":{},
+                    "Roce":{},
+                    "profit_growth":{},
+                },
+                "FinStart":{
 
-            },
-            "Charts":{
+                },
+                "Charts":{
 
-            },
-            "Peers":{
+                },
+                "Peers":{
 
-            },       
-            "Share_holding_pattern":{
+                },       
+                "Share_holding_pattern":{
 
-            },
-            "Quaterly":{
-                "particulars":{
-                    "net_sales":{
-
+                },
+                "Quaterly(all figures in cr.)":{
+                    "particulars":{
+                        "net_sales":{},
+                        "Total_expenditue":{},
+                        "operating_profit":{},
+                        "other_income":{},
+                        "interest":{},
+                        "Deprection":{},
+                        "Exceptional_itmes":{},
+                        "profit_before_tax":{},
+                        "tax":{},
+                        "profit_after_tax":{},
+                        "Adjusted_Eps(rs)":{},
                     },
-                    "Total_expenditure":{
-
+                },
+                "Profit_&_Loss":{
+                    "particulars":{
+                        "net_sales":{},
+                        "Total_expenditue":{},
+                        "operating_profit":{},
+                        "other_income":{},
+                        "interest":{},
+                        "Deprection":{},
+                        "Exceptional_itmes":{},
+                        "profit_before_tax":{},
+                        "tax":{},
+                        "profit_after_tax":{},
+                        "Adjusted_Eps(rs)":{},
                     },
                 },
-            },
-            "Profit_&_Loss":{
-                "Net_sales":{
-
+                "Balance_Sheet":{
+                    "Equity":{
+                        "Share_Capital":{},
+                        'Total_reservers':{},
+                        'borrowings':{},
+                        'other n/c liabilites':{},
+                        'current_liabilites':{},
+                        'total_liabailtes':{},
+                        },
+                    "Assets":{
+                            "net_block":{},
+                            'capital_wip':{},
+                            'investment':{},
+                            'loan&advances':{},
+                            'other n/c assets':{},
+                            'current_assets':{},
+                            'total_assests':{},
+                        },
                     },
-                "Total_Expenditure":{
-
-                    },
-                },
-            "Balance_Sheet":{
-                "Equity":{
-
-                },
-                "Assets":{
-
-                },
-                },
-            "Cash_flows":{
-                "profit_before_tax":{
-
-                    },
-                "Adjustment":{
-
-                    },
-                "Working_capital_Changes":{
-
-                },
-                },
-
-            "Corporate_Actions":{
-                "Ex_date":{
-
-                    }
+                "Cash_flows":{
+                    "profit_before_tax":{},
+                    "adjustment":{},
+                    'Working_capital_changes':{},
+                    'tax_paid':{},
+                    'operating_cash_flow':{},
+                    'investing_cash_flow':{},
+                    'financing_cash_flow':{},
+                    'net_cash_flow':{},
                 },
             
             },
-
-        },
+         },
 
     ],safe=False)
+
+    else:
+        return JsonResponse([{"error":"Company not found"},],safe=False)
