@@ -3,8 +3,6 @@ Whenever we make a request to a specified Company Name through Python, it return
 
 Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Thanks for checking it out.
 
-All documentation is in the "docs" directory and online at https://docs.djangoproject.com/en/stable/. If you're just getting started, here's how we recommend you read the docs:
-
 First, read docs/intro/install.txt for instructions on installing Django.
 Next, work through the tutorials in order (docs/intro/tutorial01.txt, docs/intro/tutorial02.txt, etc.).
 If you want to set up an actual deployment server, read docs/howto/deployment/index.txt for instructions.
